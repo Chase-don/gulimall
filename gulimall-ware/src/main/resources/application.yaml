@@ -1,7 +1,7 @@
 spring:
   datasource:
     username: root
-    password: root
+    password: 5Ydq#x7$X@BD^n(X
     url: jdbc:mysql://119.23.215.53:3306/gulimall_wms?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
 
