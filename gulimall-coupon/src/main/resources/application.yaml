@@ -2,7 +2,7 @@
 #  datasource:
 #    username: root
 #    password: 5Ydq#x7$X@BD^n(X
-#    url: jdbc:mysql://119.23.215.53:3306/gulimall_sms?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+#    url: jdbc:mysql://123.60.179.4:3306/gulimall_sms?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
 #    driver-class-name: com.mysql.cj.jdbc.Driver
 #  cloud:
 #    nacos:

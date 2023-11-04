@@ -1,4 +1,16 @@
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*.xml
+  # 修改@TableId的默认信息，即设置为‘auto’表示主键自增
+  global-config:
+    db-config:
+      id-type: auto
+
 spring:
+  datasource:
+    username: root
+    password: 5Ydq#x7$X@BD^n(X
+    url: jdbc:mysql://123.60.179.4:3306/gulimall_pms?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai&autoReconnect=true&autoReconnectForPools=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
   cloud:
     gateway:
       routes:
@@ -11,3 +23,22 @@ spring:
           uri: https://tencent.com
           predicates:
             - Query=url,qq
+
+        - id: product_route
+          uri: lb://gulimall-product
+          predicates:
+            ## 前端项目发送请求都带上api前缀
+            - Path= /api/product/**
+          filters:
+            - RewritePath=/api/(?<segment>.*), /$\{segment}
+
+        - id: admin_route
+          uri: lb://renren-fast
+          predicates:
+            ## 前端项目发送请求都带上api前缀
+            - Path= /api/**
+          filters:
+            - RewritePath=/api/(?<segment>.*), /renren-fast/$\{segment}
+## 把 http://localhost:88/api/captcha.jpg 转换为真正的 http://localhost:8080/renren-fast/captcha.jpg 路径
+
+
